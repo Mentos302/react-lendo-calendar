@@ -238,7 +238,6 @@ const Days: React.FC<Props> = ({
         [calendarData.date, isDateTooEarly, isDateTooLate, disabledDates]
     );
 
-    //updated this to put line through sat and sun
     const buttonClass = useCallback(
         (day: number, type: "current" | "next" | "previous") => {
             const baseClass = "flex items-center justify-center w-12 h-12 lg:w-10 lg:h-10";
@@ -315,6 +314,9 @@ const Days: React.FC<Props> = ({
                     "text-gray-400"
                 );
             }
+
+            // Default return to handle other cases
+            return baseClass;
         },
         [activeDateData, calendarData.date, hoverClassByDay, isDateDisabled]
     );
